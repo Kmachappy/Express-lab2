@@ -14,9 +14,13 @@ app.get("/", (req,res)=>{
     res.send(`test`)
 })
 
+app.get("/greeting/", (req,res)=>{
+    res.send(`Hello, stranger`)
+})
 
-
-
+app.get("/greeting/:name", (req,res)=>{
+    res.send(`Wow! Hello There, ${req.params.name}`)
+})
 
 app.listen(port, () => {
     console.log("Express is listening on port: ", port)
