@@ -36,6 +36,25 @@ app.get("/magic/:question", (req,res)=>{
               </body>`)
 })
 
+// fibonnaci
+
+app.get("/Fibonnaci/:numer", (req,res)=>{
+    //https://www.mathsisfun.com/numbers/fibonacci-sequence.html
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
+    //https://www.geeksforgeeks.org/check-number-fibonacci-number/
+    //since the number is a perfect square there can be no decimal place
+    const number = parseInt(req.params.numer)
+    
+    // console.log(Number.isInteger(Math.sqrt(5* (number **2) +4)))
+    //number =8 ;output 18 so true
+    // console.log(Number.isInteger(Math.sqrt(5* (number **2) -4)))
+    //number =8 ; output 17.7763883 so false
+    if(Number.isInteger((Math.sqrt(5* (number **2) +4))) || Number.isInteger(Math.sqrt(5* (number **2) -4))){
+        res.send(`(Number: ${number}) Very good. it is fibonacci `)
+    }else{
+        res.send(`(Number: ${number}) I can tell this is not a fibonacci number`)
+    }
+})
 
 app.listen(port, () => {
     console.log("Express is listening on port: ", port)
