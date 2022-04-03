@@ -43,6 +43,7 @@ app.get("/Fibonnaci/:numer", (req,res)=>{
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
     //https://www.geeksforgeeks.org/check-number-fibonacci-number/
     //since the number is a perfect square there can be no decimal place
+    //Binet's formula provides a proof that a positive integer x is a Fibonacci number if and only if at least one of 5 x 2 + 4 {\displaystyle 5x^{2}+4} 5x^{2}+4 or 5 x 2 − 4 {\displaystyle 5x^{2}-4} 5x^{2}-4 is a perfect square.
     const number = parseInt(req.params.numer)
     
     // console.log(Number.isInteger(Math.sqrt(5* (number **2) +4)))
