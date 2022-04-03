@@ -44,13 +44,21 @@ app.get("/Fibonnaci/:numer", (req,res)=>{
     //https://www.geeksforgeeks.org/check-number-fibonacci-number/
     //since the number is a perfect square there can be no decimal place
     //Binet's formula provides a proof that a positive integer x is a Fibonacci number if and only if at least one of 5 x 2 + 4 {\displaystyle 5x^{2}+4} 5x^{2}+4 or 5 x 2 − 4 {\displaystyle 5x^{2}-4} 5x^{2}-4 is a perfect square.
-    const number = parseInt(req.params.numer)
-    
-    // console.log(Number.isInteger(Math.sqrt(5* (number **2) +4)))
+     // console.log(Number.isInteger(Math.sqrt(5* (number **2) +4)))
     //number =8 ;output 18 so true
     // console.log(Number.isInteger(Math.sqrt(5* (number **2) -4)))
     //number =8 ; output 17.7763883 so false
-    if(Number.isInteger((Math.sqrt(5* (number **2) +4))) || Number.isInteger(Math.sqrt(5* (number **2) -4))){
+    const number = parseInt(req.params.numer)
+    isPerfectSquare = num =>{
+        const plus = Number.isInteger((Math.sqrt(5* (num **2) +4)))
+        const minus = Number.isInteger((Math.sqrt(5* (num **2) -4)))
+        return plus || minus
+    }
+     console.log(isPerfectSquare(number))
+    
+
+   
+    if(isPerfectSquare(number)){
         res.send(`(Number: ${number}) Very good. it is fibonacci `)
     }else{
         res.send(`(Number: ${number}) I can tell this is not a fibonacci number`)
